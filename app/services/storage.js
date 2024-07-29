@@ -11,7 +11,7 @@ angular.module("storageExplorer").factory("storage", function ($q, $rootScope, a
     };
     var keepAliveFn = function(){
       setInterval(function(){
-        runtime.sendMessage({})
+        runtime.sendMessage({ action: 'keepAlive' })
       }, 10000)
     }
     keepAliveFn();

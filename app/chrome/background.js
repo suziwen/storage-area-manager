@@ -200,6 +200,9 @@ function initializeExtension(runtime, scripting) {
             externalPort.disconnect();
         }
     });
+    runtime.onMessage.addListener(function (message, sender, response) {
+      return
+    })
 }
 
 if (chrome.runtime && chrome.extension) {
