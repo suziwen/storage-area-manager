@@ -5,6 +5,7 @@ angular.module("storageExplorer").controller("StorageCtrl", function ($scope, $r
     var descriptos = {
         "local": {title: "chrome.storage.local"},
         "sync": {title: "chrome.storage.sync"},
+        "session": {title: "chrome.storage.session"},
         "managed": {title: "chrome.storage.managed", readonly: true},
         "localStorage": {title: "window.localStorage", stringOnly: true},
         "sessionStorage": {title: "window.sessionStorage", stringOnly: true}
@@ -17,6 +18,7 @@ angular.module("storageExplorer").controller("StorageCtrl", function ($scope, $r
         $scope.stats = {
         };
         $scope.meta = {
+            session: null,
             sync: null,
             local: null
         };
@@ -24,7 +26,7 @@ angular.module("storageExplorer").controller("StorageCtrl", function ($scope, $r
             if (!$rootScope.currentType) {
                 $rootScope.currentType = value;
             }
-            if(value === "sync" || value === 'local'){
+            if(value === "sync" || value === 'local' || value === 'session'){
                 storage[value].getMeta().then(function(meta){
                     $scope.meta[value] = meta;
                 })

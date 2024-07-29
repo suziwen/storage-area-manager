@@ -14,6 +14,7 @@ angular.module("storageExplorer").factory("appContext", function ($q, $rootScope
                     if (manifest.permissions.indexOf("storage") > -1 || manifest["optional_permissions"].indexOf("storage") > -1) {
                         storageTypes.push('local');
                         storageTypes.push('sync');
+                        storageTypes.push('session');
                         storageTypes.push('managed');
                     }
                 }
