@@ -8,6 +8,12 @@ angular.module("storageExplorer").factory("storage", function ($q, $rootScope, a
         localStorage: delegateStorage(connectionDeferred.promise, "localStorage"),
         sessionStorage: delegateStorage(connectionDeferred.promise, "sessionStorage")
     };
+    var keepAliveFn = function(){
+      setInterval(function(){
+        runtime.sendMessage({})
+      }, 10000)
+    }
+    keepAliveFn();
     appContext()
         .then(function (appInfo) {
             var connection = {};
