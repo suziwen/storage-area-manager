@@ -7,8 +7,7 @@
         "service_worker": "app/chrome/background.js"
     },
     "permissions": [
-        "clipboardRead",
-        "clipboardWrite"
+        "scripting"
     ],
     "host_permissions": [
         "<all_urls>"

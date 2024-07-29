@@ -162,13 +162,13 @@ PortManager.prototype.trackTargetPort = function (app, tab, port) {
 };
 
 
-function initializeExtension(runtime, tabs) {
+function initializeExtension(runtime, scripting) {
     var portManager = new PortManager();
     runtime.onConnect.addListener(function (port) {
         if (port.name.indexOf("for_tab_") === 0) {
             console.log("Devtools listening for tab ", port.name);
             var tabId = parseInt(port.name.substring("for_tab_".length));
-            tabs.executeScript(tabId, {file: "app/chrome/htmlStorageHook.js"}, function (e, p) {
+          scripting.executeScript({target: {tabId}, files: ["app/chrome/htmlStorageHook.js"]}, function (e, p) {
                 port.postMessage("portConnected");
                 console.log("Connecting devtools port");
             });
@@ -200,19 +200,8 @@ function initializeExtension(runtime, tabs) {
             externalPort.disconnect();
         }
     });
-
-    runtime.onMessage.addListener(function (message, sender, response) {
-        if (message.action === 'copy') {
-            console.error('Not implemented for MV3')
-            return;
-        }
-        if (message.action === 'paste') {
-            console.error('Not implemented for MV3');
-            return;
-        }
-    });
 }
 
 if (chrome.runtime && chrome.extension) {
-    initializeExtension(chrome.runtime, chrome.tabs);
+    initializeExtension(chrome.runtime, chrome.scripting);
 }
