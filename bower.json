@@ -1,6 +1,6 @@
 {
-    "name": "storage-area-explorer",
-    "version": "0.4.2",
+    "name": "storage-area-manager",
+    "version": "0.1.1",
     "dependencies": {
         "angular": "1.2.10",
         "jquery": "2.0.3",
@@ -10,9 +10,9 @@
     "angular-mocks": "1.2.10"
 },
 
-    "homepage": "https://github.com/jusio/storage-area-explorer",
+    "homepage": "https://github.com/suziwen/storage-area-manager",
     "authors": [
-        "Alexey Bykov <jusioa@gmail.com>"
+        "suziwen <suziwen1@gmail.com>"
     ],
     "license": "MIT",
     "private": true,
