@@ -35,7 +35,7 @@ module.exports = function (grunt) {
                     'components/angular/angular.min.js',
                     'manifest.json'
                 ],
-                dest: 'build/storage-area-explorer-v<%=pkg.version%>_' + Date.now() + '.zip'
+                dest: 'build/storage-area-manager-v<%=pkg.version%>_' + Date.now() + '.zip'
             },
             testsCoverage: {
                 compression: 'DEFLATE',
