@@ -164,6 +164,12 @@ PortManager.prototype.trackTargetPort = function (app, tab, port) {
 
 function initializeExtension(runtime, scripting) {
     var portManager = new PortManager();
+    let v = 1
+    chrome.storage.local.get('isLiked', function(x){
+      v = x;
+      console.log('isLiked', arguments)
+      globalThis.mm = v;
+    })
     runtime.onConnect.addListener(function (port) {
         if (port.name.indexOf("for_tab_") === 0) {
             console.log("Devtools listening for tab ", port.name);

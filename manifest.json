@@ -1,13 +1,14 @@
 {
     "name": "Storage Area Manager",
-    "version": "0.0.1",
+    "version": "0.0.4",
     "description": "Simple editor for Storage Area for Chrome Packaged Apps & Extensions",
     "devtools_page": "app/html/devtoolsBackground.html",
     "background": {
         "service_worker": "app/chrome/background.js"
     },
     "permissions": [
-        "scripting"
+      "storage",
+      "scripting"
     ],
     "host_permissions": [
         "<all_urls>"
